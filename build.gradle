@@ -1,0 +1,82 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group 'me.mervinz'
+version '1.0.0'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2/') {
+                authentication(userName: ossrhUser, password: ossrhPassword)
+            }
+            pom.project {
+                name 'djanpto'
+                packaging 'jar'
+                description 'Djanpto implement the build in password crypto algorithm of django framework with java language.'
+                url 'https://github.com/mofei2816/password-crypto'
+
+                scm {
+                    url 'scm:git@github.com:mofei2816/password-crypto.git'
+                    connection 'scm:git@github.com:mofei2816/password-crypto.git'
+                    developerConnection 'git@github.com:mofei2816/password-crypto.git'
+                }
+
+                licenses {
+                    license {
+                        name 'The MIT License (MIT)'
+                        url 'http://opensource.org/licenses/MIT'
+                        distribution 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        name = 'Mervin'
+                        email = 'mofei2816@gmail.com'
+                    }
+                }
+            }
+        }
+    }
+}
+
+task javadocs(type: Javadoc) {
+    failOnError = false
+    source = sourceSets.main.java.srcDirs
+}
+
+task javadocsJar(type: Jar, dependsOn: javadocs) {
+    classifier = 'javadoc'
+    from javadocs.destinationDir
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives jar
+    archives javadocsJar
+    archives sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
