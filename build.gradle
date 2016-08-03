@@ -29,12 +29,12 @@ uploadArchives {
                 name 'djanpto'
                 packaging 'jar'
                 description 'Djanpto implement the build in password crypto algorithm of django framework with java language.'
-                url 'https://github.com/mofei2816/password-crypto'
+                url 'https://github.com/mofei2816/djanpto'
 
                 scm {
-                    url 'scm:git@github.com:mofei2816/password-crypto.git'
-                    connection 'scm:git@github.com:mofei2816/password-crypto.git'
-                    developerConnection 'git@github.com:mofei2816/password-crypto.git'
+                    url 'scm:git@github.com:mofei2816/djanpto.git'
+                    connection 'scm:git@github.com:mofei2816/djanpto.git'
+                    developerConnection 'git@github.com:mofei2816/djanpto.git'
                 }
 
                 licenses {
