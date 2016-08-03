@@ -23,7 +23,7 @@ Now, I implement it with java language.<br>
  
 ## Installation
 
-Download [the latest JAR]() or using **Maven**:
+Download [the latest JAR](http://central.maven.org/maven2/me/mervinz/djanpto/1.0.0/djanpto-1.1.0.jar) or using **Maven**:
  
  ```
  <dependency>
