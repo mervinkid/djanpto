@@ -25,7 +25,7 @@ Now, I implement it with java language.<br>
 
 Download [the latest JAR](http://central.maven.org/maven2/me/mervinz/djanpto/1.0.0/djanpto-1.1.0.jar) or using **Maven**:
  
- ```
+ ```xml
  <dependency>
    <groupId>me.mervinz</groupId>
    <artifactId>djanpto</artifactId>
@@ -35,7 +35,7 @@ Download [the latest JAR](http://central.maven.org/maven2/me/mervinz/djanpto/1.0
  
  or **Gradle**:
  
- ```
+ ```groovy
  compile 'me.mervinz:djanpto:1.0.0'
  ```
  
@@ -58,7 +58,7 @@ There are 4 algorithms supported.
 
 Make password with default algorithm and random salt.
 
-```
+```java
 import me.mervinz.djanpto.PasswordUtil;
 
 public class Demo {
@@ -75,7 +75,7 @@ public class Demo {
 
 Make password with specified algorithm, salt an iterations.
 
-```
+```java
 import me.mervinz.djanpto.PasswordUtil;
 import me.mervinz.djanpto.Algorithm;
 
@@ -102,7 +102,7 @@ public class Demo {
 
 ### Check Password
 
-```
+```java
 import me.mervinz.djanpto.PasswordUtil;
 
 public class Demo {
